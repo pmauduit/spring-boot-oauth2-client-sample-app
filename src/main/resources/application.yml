@@ -1,0 +1,21 @@
+#logging:
+#  level:
+#    root: DEBUG
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          cas:
+            client-id: aaaa
+            client-secret: bbbb
+            authorization-grant-type: implicit
+            redirect-uri: "{baseUrl}/authorized/cas"
+        provider:
+          cas:
+            authorization-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/authorize
+            token-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/token
+            user-info-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/introspect
+
+            #user-name-attribute: sub
+            #jwk-set-uri: https://your-subdomain.oktapreview.com/oauth2/v1/keys
