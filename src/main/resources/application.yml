@@ -1,21 +1,21 @@
-#logging:
-#  level:
-#    root: DEBUG
+logging:
+  level:
+    root: INFO
+    '[org.springframework]': info
+    '[org.springframework.cloud.gateway]': debug
+    '[org.springframework.security.oauth2]': debug
 spring:
   security:
     oauth2:
       client:
         registration:
           cas:
-            client-id: aaaa
-            client-secret: bbbb
+            client-id: external-oauth2
+            client-secret: aaaa
             authorization-grant-type: implicit
             redirect-uri: "{baseUrl}/authorized/cas"
         provider:
           cas:
-            authorization-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/authorize
-            token-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/token
-            user-info-uri: https://georchestra-127-0-1-1.traefik.me/cas/oauth2.0/introspect
-
-            #user-name-attribute: sub
-            #jwk-set-uri: https://your-subdomain.oktapreview.com/oauth2/v1/keys
+            authorization-uri: https://dev.geo2france.fr/cas/oauth2.0/authorize
+            token-uri: https://dev.geo2france.fr/cas/oauth2.0/token
+            user-info-uri: https://dev.geo2france.fr/cas/oauth2.0/introspect
